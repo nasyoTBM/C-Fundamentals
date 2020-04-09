@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.WinningTicket", "1.WinningTicket\1.WinningTicket.csproj", "{E623D12C-6188-40DB-BEEE-E82BBB292542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.RageQUitt", "2.RageQUitt\2.RageQUitt.csproj", "{CF9C0231-B852-4061-8F8A-C0A723176115}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E623D12C-6188-40DB-BEEE-E82BBB292542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E623D12C-6188-40DB-BEEE-E82BBB292542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E623D12C-6188-40DB-BEEE-E82BBB292542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E623D12C-6188-40DB-BEEE-E82BBB292542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9C0231-B852-4061-8F8A-C0A723176115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9C0231-B852-4061-8F8A-C0A723176115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9C0231-B852-4061-8F8A-C0A723176115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9C0231-B852-4061-8F8A-C0A723176115}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27227680-7B16-46B5-BB2A-5FD908A3D554}
+	EndGlobalSection
+EndGlobal
