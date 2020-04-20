@@ -78,37 +78,49 @@ namespace Restaurant
         }
         static void MakeOrder(int table,Dictionary<int, List<Product>> orders,string[] input, List<Product> menuProducts)
         {
-            int index = 0;
+            
             
 
             for (int i = 1; i < input.Length; i++)
             {
                 
-                if (menuProducts.Any(s=>s.Name==input[i]))
-                {
-                    index = menuProducts.FindIndex(s => s.Name == input[i]);
+                
+                   int index = menuProducts.FindIndex(s => s.Name == input[i]);
                     
 
-                }
-                if (orders.ContainsKey(table)&&index!=0)
-                {
-                    orders[table].Add(menuProducts[index]);
-                }
+                
+                
+                    if (orders.ContainsKey(table))
+                    {
+                        orders[table].Add(menuProducts[index]);
+                    }
+                    else
+                    {
+                        orders.Add(table,new List<Product>());
+                        orders[table].Add(menuProducts[index]);
+                    }
+                
+                
                 
             }
         }
         static void TotalSales(Dictionary<int, List<Product>> orders)
         {
-            int totalSalesCount = orders.Values.Count;
+            int totalSalesCount = 0;
             decimal totalSalesSum = 0;
             foreach (var item in orders)
             {
                 foreach ( var article in item.Value)
                 {
+                    totalSalesCount++;
                     totalSalesSum += article.Price;
                 }
             }
             Console.WriteLine($"Total sales: {totalSalesCount} - {totalSalesSum:F2}");
+        }
+        static void PrintCategories(Dictionary<int, List<Product>> orders)
+        {
+
         }
     }
 }
