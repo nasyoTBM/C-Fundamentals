@@ -14,6 +14,7 @@ namespace Restaurant
             string[] input = Console.ReadLine().Split(new string[] { ", " }, StringSplitOptions.None).ToArray();
             List<Product> menuProducts = new List<Product>();
             Dictionary<int, List<Product>> orders = new Dictionary<int, List<Product>>();
+            
 
             while (!int.TryParse(input[0],out int random))
             {
@@ -68,6 +69,19 @@ namespace Restaurant
             }
             while (input[0]!="Exit")
             {
+                if (input[0] == "Sales")
+                {
+                    Console.WriteLine($"Tables total count: {orders.Count}");
+                    TotalSales(orders);
+                    Console.WriteLine("By categories: ");
+                    PrintSalad(orders);
+                    PrintSoup(orders);
+                    PrintMainDish(orders);
+                    PrintDesert(orders);
+                    PrintDrink(orders);
+                    input = Console.ReadLine().Split(new string[] { ", " }, StringSplitOptions.None).ToArray();
+                    continue;
+                }
                 int table = int.Parse(input[0]);
                 MakeOrder(table, orders, input, menuProducts);
                 
@@ -75,6 +89,12 @@ namespace Restaurant
             }
             Console.WriteLine($"Tables total count: {orders.Count}");
             TotalSales(orders);
+            Console.WriteLine("By categories: ");
+            PrintSalad(orders);
+            PrintSoup(orders);
+            PrintMainDish(orders);
+            PrintDesert(orders);
+            PrintDrink(orders);
         }
         static void MakeOrder(int table,Dictionary<int, List<Product>> orders,string[] input, List<Product> menuProducts)
         {
@@ -118,9 +138,90 @@ namespace Restaurant
             }
             Console.WriteLine($"Total sales: {totalSalesCount} - {totalSalesSum:F2}");
         }
-        static void PrintCategories(Dictionary<int, List<Product>> orders)
+        static void PrintSalad(Dictionary<int, List<Product>> orders)
         {
-
+            int typeCounter = 0;
+            decimal typeSumCounter = 0;
+            foreach (var item in orders)
+            {
+                foreach (var article in item.Value)
+                {
+                    if (article.Type=="Salad")
+                    {
+                        typeCounter++;
+                        typeSumCounter += article.Price;
+                    }
+                }
+            }
+            Console.WriteLine($"*   Salad: {typeCounter} - {typeSumCounter:F2}");
+        }
+        static void PrintSoup(Dictionary<int, List<Product>> orders)
+        {
+            int typeCounter = 0;
+            decimal typeSumCounter = 0;
+            foreach (var item in orders)
+            {
+                foreach (var article in item.Value)
+                {
+                    if (article.Type == "Soup")
+                    {
+                        typeCounter++;
+                        typeSumCounter += article.Price;
+                    }
+                }
+            }
+            Console.WriteLine($"*   Soup: {typeCounter} - {typeSumCounter:F2}");
+        }
+        static void PrintMainDish(Dictionary<int, List<Product>> orders)
+        {
+            int typeCounter = 0;
+            decimal typeSumCounter = 0;
+            foreach (var item in orders)
+            {
+                foreach (var article in item.Value)
+                {
+                    if (article.Type == "MainDish")
+                    {
+                        typeCounter++;
+                        typeSumCounter += article.Price;
+                    }
+                }
+            }
+            Console.WriteLine($"*   MainDish: {typeCounter} - {typeSumCounter:F2}");
+        }
+        static void PrintDesert(Dictionary<int, List<Product>> orders)
+        {
+            int typeCounter = 0;
+            decimal typeSumCounter = 0;
+            foreach (var item in orders)
+            {
+                foreach (var article in item.Value)
+                {
+                    if (article.Type == "Desert")
+                    {
+                        typeCounter++;
+                        typeSumCounter += article.Price;
+                    }
+                }
+            }
+            Console.WriteLine($"*   Desert: {typeCounter} - {typeSumCounter:F2}");
+        }
+        static void PrintDrink(Dictionary<int, List<Product>> orders)
+        {
+            int typeCounter = 0;
+            decimal typeSumCounter = 0;
+            foreach (var item in orders)
+            {
+                foreach (var article in item.Value)
+                {
+                    if (article.Type == "Drink")
+                    {
+                        typeCounter++;
+                        typeSumCounter += article.Price;
+                    }
+                }
+            }
+            Console.WriteLine($"*   Drink: {typeCounter} - {typeSumCounter:F2}");
         }
     }
 }
